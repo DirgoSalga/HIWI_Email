@@ -46,13 +46,5 @@ def table_template(filepath, keylist):
     return table_str
 
 
-if __name__ == "__main__":
-    # excel_path = "D:/Dirgo/Documents/HIWI/Noten.xlsx"
-    from tkinter import Tk
-    from tkinter.filedialog import askopenfilename
-
-    root = Tk()
-    root.withdraw()
-    excel_path = askopenfilename()
-    print(load_excel(excel_path, 9, "B1,B2,B3,%-B".split(",")))
-    print(table_template(excel_path, "B1,B2,B3,B4".split(",")))
+def test_text(template, dicc):
+    return template.format(**dicc)
