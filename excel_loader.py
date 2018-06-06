@@ -19,10 +19,9 @@ def load_excel(filepath, row, ubung_keys):
     sheet = book.sheet_by_index(0)
 
     # Define column indexes, for the sheet numbers a dictionary
-    name = 1
-    lastname = 0
-    # mail = 33
-    # B1-PB31 ---> 2,27
+    name = 1  # Number of the column that contains all names
+    lastname = 0  # Number of the column that contains all last names
+
     dicc_cols = dict()
     for i in range(2, sheet.ncols):
         # {k:v}={sheet_number(str):index(int)}
@@ -36,16 +35,14 @@ def load_excel(filepath, row, ubung_keys):
     return result
 
 
-def table_template(filepath, keylist, starting_arg=1):
-    scores = load_excel(filepath, 2, keylist)
+def table_template(filepath, keylist):
+    scores = load_excel(filepath, 2, keylist)  # Gets maximal scores
     table_str = ""
-    j = starting_arg
     for key in keylist:
         if key[0] == "B":
-            table_str += "%s: {%d} / %.1f\n\n" % (key, j, scores[key])
+            table_str += "%s: {%s} / %.1f\n\n" % (key, key, scores[key])
         else:
-            table_str += "%s: {%d} / %.1f\t" % (key, j, scores[key])
-        j += 1
+            table_str += "%s: {%s} / %.1f\t" % (key, key, scores[key])
     return table_str
 
 
@@ -58,4 +55,4 @@ if __name__ == "__main__":
     root.withdraw()
     excel_path = askopenfilename()
     print(load_excel(excel_path, 9, "B1,B2,B3,%-B".split(",")))
-    print(table_template(excel_path, "B1,B2,B3,B4".split(","), 1))
+    print(table_template(excel_path, "B1,B2,B3,B4".split(",")))

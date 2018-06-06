@@ -13,7 +13,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 
-def email_sender(sender, password, s_host, s_port, template, keys_list, student_dict, subject="", audio_path=None,
+def email_sender(sender, password, s_host, s_port, template, student_dict, subject="", audio_path=None,
                  app_path=None, image_path=None):
     """key_list is a list of the keys that are to be used from the given dictionary.
     Normally "lastname" is the only one left out."""
@@ -36,7 +36,7 @@ def email_sender(sender, password, s_host, s_port, template, keys_list, student_
     msg["From"] = sender
     msg["To"] = receiver
 
-    text = template.format(*[student_dict[i] for i in keys_list])
+    text = template.format(**student_dict)
     print(text)
     msg.attach(MIMEText(text))
 
@@ -74,7 +74,7 @@ if __name__ == "__main__":
 
     table = table_template(excel_path, "B1,B2,B3,B4".split(","))  # ONLY B & BP
     print(table)
-    temp = ('''Hallo {0},
+    temp = '''Hallo {name},
 
 Wie schon während der Übung besprochen, schicke ich dir eine Übersicht deiner Noten:
 
@@ -82,12 +82,12 @@ Wie schon während der Übung besprochen, schicke ich dir eine Übersicht deiner
 
 Gib mir Bescheid, falls deine und meine nicht übereinstimmen.
 
-Falls das alles stimmt hast du dann bei den Übungsblättern {5}%%.
+Falls das alles stimmt hast du dann bei den Übungsblättern {%%-B}%%.
 
 Liebe Grüße
 
 Diego
-''' % table)
+''' % table
 
     clave = input("password:\n")
     tema = input("subject:\n")
@@ -96,5 +96,4 @@ Diego
         if stud["Email"] == "":
             pass
         else:
-            email_sender("dsalgado@students.uni-mainz.de", clave, "mail.uni-mainz.de", 587, temp,
-                         "name,B1,B2,B3,B4,%-B".split(","), stud, subject=tema)
+            email_sender("dsalgado@students.uni-mainz.de", clave, "mail.uni-mainz.de", 587, temp, stud, subject=tema)
