@@ -4,7 +4,6 @@ Created on Wed Oct 18 13:21:49 2017
 
 @author:Dirgo
 """
-import os
 import smtplib
 from email.mime.application import MIMEApplication
 from email.mime.audio import MIMEAudio
