@@ -13,6 +13,7 @@ The whole program is written in Python 3. Additionally you are going to need and
 - smtplib (normally included in Python 3)
 - email (normally included in Python 3)
 - tkinter (optional. Just necessary in case you want to implement the code like I did in the implementation file)
+- Pandas (recommended to read in the csv)
 
 All of these can easily be installed using ```pip``` from the command line.
 
