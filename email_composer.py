@@ -4,6 +4,7 @@ Created on Wed Oct 18 13:21:49 2017
 
 @author:Dirgo
 """
+import os
 import smtplib
 from email.mime.application import MIMEApplication
 from email.mime.audio import MIMEAudio
@@ -12,13 +13,11 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 
-def email_sender(sender, password, s_host, s_port, template, student_dict, subject="", audio_path=None,
+def email_sender(sender, receiver, password, s_host, s_port, text, subject="", audio_path=None,
                  app_path=None, image_path=None):
     """key_list is a list of the keys that are to be used from the given dictionary.
     Normally "lastname" is the only one left out."""
     """MP3, JPG, PDF supported, others must be still be tested"""
-
-    receiver = student_dict["Email"]
 
     s = smtplib.SMTP(host=s_host, port=s_port)
     s.ehlo()
@@ -35,7 +34,6 @@ def email_sender(sender, password, s_host, s_port, template, student_dict, subje
     msg["From"] = sender
     msg["To"] = receiver
 
-    text = template.format(**student_dict)
     print(text)
     msg.attach(MIMEText(text))
 

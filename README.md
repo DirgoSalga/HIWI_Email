@@ -10,22 +10,15 @@ To get the software running on your machine make a git clone of the repository a
 
 The whole program is written in Python 3. Additionally you are going to need and excel table, saved in Microsoft Excel file. The list of used modules are:
 
-- xlrd
 - smtplib (normally included in Python 3)
 - email (normally included in Python 3)
 - tkinter (optional. Just necessary in case you want to implement the code like I did in the implementation file)
 
 All of these can easily be installed using ```pip``` from the command line.
 
-Example:
-
-```
-pip install xlrd
-```
-
 # Implementation
 
-The code expects an excel table with the following structure:
+The code expects a table with the following structure:
 
 - The first column should be reserved for the last name of the student
 - The second column should be reserved for the first name.
