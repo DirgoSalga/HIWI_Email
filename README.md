@@ -37,11 +37,7 @@ Anyone is welcome to contribute. Feel free to create your own branch of this git
 
 ## Future projects
 
-The idea for the future of this project is to develop a GUI that can be used by less tech-savvy teachers and tutors. Integrate the GUI with its own tables, so the excel file becomes unnecessary.
-
-## Acknowledgement
-
-Thanks to *John Machin, Lingfo Pty Ltd*, the author of xlrd the fundamental piece that allows this code to work (for now).
+The idea for the future of this project is to develop a GUI that can be used by less tech-savvy teachers and tutors. Integrate the GUI with its own tables.
 
 ## Author
 
