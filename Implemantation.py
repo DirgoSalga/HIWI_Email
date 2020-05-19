@@ -10,6 +10,7 @@ from tkinter.filedialog import askopenfilename
 # from preparation import load_excel, table_template, test_text
 from email_composer import email_sender
 import pandas as pd
+from getpass import getpass
 
 if __name__ == '__main__':
     root = Tk()
@@ -27,7 +28,7 @@ Diego
     '''
     mask = pd.isna(df["B1"])
     current_df = df.loc[~mask]
-    clave = input("password:\n")
+    clave = getpass()
     tema = input("subject:\n")
     for i in range(len(current_df)):
         text = temp.format(**current_df.iloc[i])
