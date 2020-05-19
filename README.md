@@ -19,18 +19,9 @@ All of these can easily be installed using ```pip``` from the command line.
 
 # Implementation
 
-The code expects a table with the following structure:
+You should create csv table for the points. Each row should contain just information about one student. The columns include e-mail address, name, last name, score of a given problem sheet.
 
-- The first column should be reserved for the last name of the student
-- The second column should be reserved for the first name.
-- The first two columns do not need to start at row 1.
-- The first row of every column after the first two has to contain a title that will be used to define a key of a dictionary.
-
-Each row should contain just information about one student. This information is going to be saved in a dictionary. The first two keys are given, but the rest are defined by you. Including e-mail addresses.
-
-When your excel table is done, you can load the information of your students using the functions in ```preparation.py```
-
-You should loop through the rows and save the individual dictionaries in a list. Finally, use the ```email_composer.py``` to send individual e-mails to all your students. You can use my ```Implementation.py``` code as an example and maybe as guide.
+You should loop through the rows of your csv table. Finally, use the ```email_composer.py``` to send individual e-mails to all your students. You can use my ```Implementation.py``` code as an example and maybe as guide.
 
 ## Contributing
 
